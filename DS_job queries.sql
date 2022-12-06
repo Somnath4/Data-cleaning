@@ -1,4 +1,3 @@
--- Active: 1669711290095@@127.0.0.1@3306@projects
 SELECT *
 FROM ds_job
 LIMIT 10;
@@ -15,8 +14,7 @@ SET Salary_Estimate = SUBSTRING_INDEX(Salary_Estimate,' ', 1);
 SELECT *
 FROM ds_job;
 
--- removing rating from the `Company_Name`. I can't do it. I don't know how to do it.
-
+-- removing rating from the `Company_Name`
 SELECT `Company_Name`,
        SUBSTRING_INDEX(`Company_Name`, '
 ', 1) company_name       
@@ -105,7 +103,7 @@ SELECT *
 FROM ds_job
 LIMIT 10;
 
--- let's analyise it little bit about job description
+-- let's analyise it a little bit about job description
 WITH skill AS (SELECT `Job_Description`,
        CASE
        WHEN `Job_Description` LIKE "%Python%"
