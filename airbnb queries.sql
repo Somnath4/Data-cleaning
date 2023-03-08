@@ -17,14 +17,14 @@ WHERE row_num = 2;
 /* Delete duplicates from the TABLE */
 DELETE FROM airbnb
 WHERE id IN(SELECT id
-			FROM(SELECT id,
-					ROW_NUMBER() 
-					OVER(
-					PARTITION BY `id` 
-					ORDER BY `id`
-					) row_num 
-					FROM airbnb) t
-			WHERE row_num > 1);
+		FROM(SELECT id,
+				ROW_NUMBER() 
+				OVER(
+				PARTITION BY `id` 
+				ORDER BY `id`
+				) row_num 
+			FROM airbnb) t
+		WHERE row_num > 1);
 
 
 /* Remove the '$'sign from price and service_fee column */
